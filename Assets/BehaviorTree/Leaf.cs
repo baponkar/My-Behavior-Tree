@@ -1,3 +1,7 @@
+/* Leaf Node is lower level node, it has no children.
+ * Leaf node is used to implement behavior tree.
+ */
+ 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

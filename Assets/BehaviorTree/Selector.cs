@@ -1,3 +1,7 @@
+/* Selector node is like OR gate if one child node is success, then the selector node is success.
+ * If all child node is failure, then the selector node is failure.
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

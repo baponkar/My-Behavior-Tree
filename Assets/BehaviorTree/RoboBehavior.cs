@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RoboBehsvior : MonoBehaviour
+public class RoboBehavior : MonoBehaviour
 {
     BehaviorTree tree;
     NavMeshAgent agent;

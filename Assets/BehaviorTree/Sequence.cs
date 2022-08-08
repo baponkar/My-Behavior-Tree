@@ -1,3 +1,8 @@
+/* Sequence node is like and gate if every child node is success, then the sequence node is success.
+ * If one child node is failure, then the sequence node is failure.
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
