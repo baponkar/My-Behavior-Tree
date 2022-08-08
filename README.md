@@ -10,5 +10,6 @@ Here Leaf nodes are action node, Sequence node run its child action nodes sequen
 
 ## Credits
 [[1](https://learn.unity.com/tutorial/introducing-behaviour-trees?uv=2020.2&projectId=60645258edbc2a001f5585aa)]
+[[2](https://www.gamedeveloper.com/programming/behavior-trees-for-ai-how-they-work)]
 
 
