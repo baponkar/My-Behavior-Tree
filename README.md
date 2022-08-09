@@ -20,3 +20,10 @@ Here Leaf nodes are action node, Sequence node run its child action nodes sequen
 
 
 
+## Summary
+**Leaf Node** is a Action Node which does not have any child.It return Running,Failure or Success to the parent Node.
+**Sequence Node** is a Composite node i.e which have multiple child. If a child Node fails then it will return Failure to the parent and does not perform next Child Node operation. It will return Success to parent only if all child Operation get success. It is like And gate operation.
+**Selector Node** is a Composite Node.If any Child Fails then perform next Child Operation untill last Child. It will return Success to parent if at least one Child get Success. It will return Failure to parent if all child operation fails. It is like OR gate Operation.
+**Inverter Node** is a Decorator Node which have only Single Node. It will return Failure if Children Status is Succcess and will return Success if child operation status is Failure otherwise it is returning Running to parent node.
+
+There should be more Nodes like **Wait Node** , **Repeat Infinite Node**, **Repeat Finite Node** etc.
