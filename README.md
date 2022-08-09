@@ -1,4 +1,9 @@
 # Behavior Tree
+* Nodes
+- [x] LeafNode
+- [x] SequenceNode [Composite Node]
+- [x] SelectorNode [Composite Node]
+- [x] InverterNode [Decorator Node]
 
 ![Screenshot of tree](Screenshots/behavior_tree.png)
 ![Screenshot of tree](Screenshots/tree.png)
