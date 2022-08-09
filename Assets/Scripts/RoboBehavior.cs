@@ -1,7 +1,17 @@
+/*
+This Robo Behavior is used to control the robot.
+ * Donloaded from : https://github.com/baponkar/My-Behavior-Tree
+ * Here robot steal the diamond if its money is less than 500 and 
+ * if he successfully steal the diamond i.e take diamond to the van,
+ * then he will earn 500.
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
+using Baponkar.BehaviorTree;
 
 public class RoboBehavior : MonoBehaviour
 {
@@ -22,17 +32,32 @@ public class RoboBehavior : MonoBehaviour
     
     void Start()
     {
+    /*
+    Used Flowchart to create the behavior tree.
+                        tree(Root Node)
+                            |
+                     steal(Sequence Node)
+                            |
+                    ----------------------------------------------------------------------------
+                    |                        |                            |                    |
+        (Decision Leaf)?hasGotMoney     goToDoor(Selector Node)  goToDiamond(Leaf Node)   goToVan(Leaf Node)  
+                                    |
+                                -----------------
+                                |               |
+                    goToBackDoor(Leaf Node)    goToFontDoor(Leaf Node)               
+
+    */ 
        agent = GetComponent<NavMeshAgent>(); 
        tree = new BehaviorTree();
 
-       Sequence stel = new Sequence("stel something");
-       Leaf hasGotMoney = new Leaf("has got money", HasMoney);
-       Leaf goToBackDoor = new Leaf("go to back door", GoToBackDoor);
-       Leaf goToFontDoor = new Leaf("go to font door", GoToFontDoor);
-       Leaf goToDiamond = new Leaf("go to diamond", GoToDiamond);
-       Leaf goToVan = new Leaf("go to van", GoToVan);
+       SequenceNode stel = new SequenceNode("stel something");
+       LeafNode hasGotMoney = new LeafNode("has got money", HasMoney);
+       LeafNode goToBackDoor = new LeafNode("go to back door", GoToBackDoor);
+       LeafNode goToFontDoor = new LeafNode("go to font door", GoToFontDoor);
+       LeafNode goToDiamond = new LeafNode("go to diamond", GoToDiamond);
+       LeafNode goToVan = new LeafNode("go to van", GoToVan);
 
-       Selector openDoor = new Selector("open door");
+       SelectorNode openDoor = new SelectorNode("open door");
        openDoor.AddChild(goToBackDoor);
        openDoor.AddChild(goToFontDoor);
        
@@ -49,7 +74,7 @@ public class RoboBehavior : MonoBehaviour
     
     void Update()
     {
-        Debug.Log("tree status: " + treeStatus);
+        Debug.Log("Tree status : " + treeStatus);
         if(treeStatus != Node.Status.Success)
         {
             treeStatus = tree.Process();
@@ -58,8 +83,8 @@ public class RoboBehavior : MonoBehaviour
 
     Node.Status GoToDestination(Vector3 destination)
     {
-       //float distanceToTarget = agent.remainingDistance;
-       float distanceToTarget = Vector3.Distance(destination, this.transform.position);
+       float distanceToTarget = agent.remainingDistance;
+       //float distanceToTarget = Vector3.Distance(destination, this.transform.position);
 
        if(actionState == ActionState.Idle)
        {
