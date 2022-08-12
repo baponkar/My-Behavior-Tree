@@ -34,6 +34,18 @@ namespace Baponkar.BehaviorTree
             this.name = name;
         }
 
+        public virtual Status Start()
+        {
+            return Status.Running;
+        }
+
+        public virtual Status Update()
+        {
+            return Status.Running;
+        }   
+
+        
+
         public virtual Status Process()
         {
             return children[currentChild].Process();

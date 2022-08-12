@@ -9,10 +9,10 @@ using UnityEngine;
 
 
 namespace Baponkar.BehaviorTree
-    {
+{
     public class LeafNode : Node
     {
-        public delegate Status Tick();
+        public delegate Status Tick(); //delegate is container of methods
         public Tick processMethod;
 
         public LeafNode() { }

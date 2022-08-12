@@ -31,9 +31,6 @@ namespace Baponkar.BehaviorTree
             return children[currentChild].Process();
         }
 
-
-
-
         struct NodeLevel
         {
             public int level;

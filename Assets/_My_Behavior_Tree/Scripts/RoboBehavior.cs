@@ -41,10 +41,10 @@ public class RoboBehavior : MonoBehaviour
                     ----------------------------------------------------------------------------
                     |                        |                            |                    |
         (Decision Leaf)?hasGotMoney     goToDoor(Selector Node)  goToDiamond(Leaf Node)   goToVan(Leaf Node)  
-                                    |
-                                -----------------
-                                |               |
-                    goToBackDoor(Leaf Node)    goToFontDoor(Leaf Node)               
+                                             |
+                                    -----------------
+                                    |               |
+                   goToBackDoor(Leaf Node)    goToFontDoor(Leaf Node)               
 
     */ 
        agent = GetComponent<NavMeshAgent>(); 
@@ -74,7 +74,6 @@ public class RoboBehavior : MonoBehaviour
     
     void Update()
     {
-        Debug.Log("Tree status : " + treeStatus);
         if(treeStatus != Node.Status.Success)
         {
             treeStatus = tree.Process();
